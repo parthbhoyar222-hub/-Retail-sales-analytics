@@ -1,6 +1,6 @@
 ##### &#x20;Business Overview
 
-* 
+
 * What is the time period covered by the dataset?
 * Which countries, states, cities, and regions are represented in the dataset?
 * Who are its customers?
