@@ -6,7 +6,7 @@ This project is about exploration  the Sample Superstore dataset to uncover patt
 
 
 
-\## What I Built
+\** What I Built
 
 
 
@@ -18,7 +18,7 @@ This project is about exploration  the Sample Superstore dataset to uncover patt
 
 
 
-\## Key Findings
+\** Key Findings
 
 
 
@@ -30,7 +30,7 @@ This project is about exploration  the Sample Superstore dataset to uncover patt
 
 
 
-\## Quick Links to Key Outputs
+\** Quick Links to Key Outputs
 
 
 
@@ -42,7 +42,7 @@ This project is about exploration  the Sample Superstore dataset to uncover patt
 
 
 
-\## Dataset \& How to Run
+\** Dataset \& How to Run
 
 
 
