@@ -1,0 +1,13 @@
+Region,Category,category_sales,regional_sales_contribution_pct
+Central,Technology,170416.29,33.87
+Central,"Office Supplies",168216.62,33.43
+Central,Furniture,164537.75,32.70
+East,Technology,267938.13,38.73
+East,Furniture,212231.66,30.68
+East,"Office Supplies",211658.46,30.59
+South,Technology,148771.91,37.98
+South,"Office Supplies",125651.31,32.08
+South,Furniture,117298.68,29.94
+West,Furniture,260679.85,35.24
+West,Technology,252767.02,34.17
+West,"Office Supplies",226366.84,30.60

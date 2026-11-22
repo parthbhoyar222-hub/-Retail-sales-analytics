@@ -1,0 +1,3 @@
+discount_group,distinct_orders,sales,profit,avg_profit_per_order,loss_making_orders,loss_making_order_percent
+"Above average discount",2354,870045.48,-83151.75,-35.32,1001,42.52
+"Below/equal average discount",2757,1456489.04,375449.32,136.18,39,1.41

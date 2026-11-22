@@ -1,0 +1,4 @@
+Segment,avg_shipping_delay_days,distinct_orders
+Corporate,4.01,1552
+Consumer,3.94,2628
+"Home Office",3.93,931

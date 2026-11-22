@@ -1,0 +1,23 @@
+# Local Python and Jupyter files
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.env
+
+# Temporary Excel files
+~$*
+
+# Source data and regenerated row-level data
+**/data/raw/
+**/data/processed/
+
+# SQL source data: keep local
+/Sql/orders.csv
+/Sql/people.csv
+/Sql/returns.csv
+/Sql/sample_-_superstore1.xlsx
+
+# SQL import exports: individual source records, not summaries
+/Sql/Results/01_data_setup/Results_01_01_import_Orders.csv
+/Sql/Results/01_data_setup/Results_01_02_import_Peoples.csv
+/Sql/Results/01_data_setup/Results_01_03_import_Returns.csv
