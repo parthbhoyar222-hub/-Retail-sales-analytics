@@ -23,7 +23,7 @@ Used:
 
 | Section | Saved results |
 | --- | --- |
-| 01 — Data setup | - [View CSV results](Results/01_data_setup/01_import_row_counts.csv) — Orders: 10,194 rows; People: 4; Returns: 296. |
+| 01 — Data setup | [View CSV results](Results/01_data_setup/01_import_row_counts.csv)  (Orders: 10,194 rows; People: 4; Returns: 296.) |
 | 02 — Sales and profitability | [View CSV results](Results/02_Sales_Profitability/) |
 | 03 — Customer profitability | [View CSV results](Results/03_Customer_Profitability/) |
 | 04 — Product category analysis | [View CSV results](Results/04_Product_category_analysis/) |
