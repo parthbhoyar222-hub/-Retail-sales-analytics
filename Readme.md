@@ -42,7 +42,26 @@ This project is about exploration  the Sample Superstore dataset to uncover patt
 
 \** Dataset \& How to Run
 
+### SQL (MySQL)
 
+The [SQL input CSVs](Sql/inputs/) are included in this repository.
+Create and select an empty MySQL schema, then open [`01_data_setup.sql`](Sql/01_data_setup.sql). In your local copy of the script, replace the three `LOAD DATA LOCAL INFILE` path placeholders with the paths to `orders.csv`, `people.csv`, and `returns_clean.csv`.
 
-Raw source workbooks and row-level import files are excluded from version control, so local copies of the source data are required to reproduce the analysis. Start by running "Notebook 01", which cleans and prepares the dataset needed for "Notebooks 02–04".
+Run the setup once, then compare the counts with the
+[verified import results](Sql/Results/01_data_setup/01_import_row_counts.csv).
+See the [SQL exercise index](Sql/README_SQL_FILES.md) for the analysis
+scripts and their saved results.
+
+### Python (Jupyter)
+
+The original Superstore workbook is not included. Use the same workbook version used for this analysis and save it as
+`Python/data/raw/sample_superstore.xlsx`.
+
+Copy `Sql/inputs/people.csv` to `Python/data/raw/people.csv`.
+Copy `Sql/inputs/returns_clean.csv` to `Python/data/raw/returns.csv`.
+The cleaned Returns CSV contains the two columns used in the analysis, so the raw-column preview will differ from the one saved in Notebook 01.
+
+Start Jupyter from the `Python/` folder and run
+[`01_data_preparation.ipynb`](Python/01_data_preparation.ipynb) first.
+It will create `Python/data/processed/orders_enriched.csv`, which will be used in notebooks 02–04 use.
 
