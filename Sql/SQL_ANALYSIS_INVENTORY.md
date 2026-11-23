@@ -1,6 +1,6 @@
 #SQL Analysis Inventory — Superstore dataset Project
 
-1.Status: Portfolio-ready working inventory  
+1.Status: Completed
 2.Database: MySQL Workbench  
 3.Primary table: 'Orders' — one row = one product line within an order  
 4.Supporting tables: 'People', 'Returns'  
@@ -8,7 +8,7 @@
 6.Analysis period: 2023-01-03 to 2026-12-30
 
 
-# 1. Grain and metric-control checklist
+### 1. Grain and metric-control checklist
 
 ### Orders
 `Orders` = one product line within one order.
@@ -16,87 +16,16 @@
 Therefore:
 
 sql
-COUNT(*)                  -- order lines
-COUNT(DISTINCT Order_ID)  -- distinct orders
-
-#  2. Purpose
-
-This inventory consolidates the substantive **SQL analysis from the surviving SQL work** into business-oriented portfolio analyses.
-
-**The original 15 learning files contained a mixture of:**
-- data-loading/setup work,
-- syntax exercises,
-- intermediate practice,
-- analytical queries,
-- repeated versions of the same analysis.
-
-**For GitHub**, the objective is **not** to preserve the learning history. The objective is to present a small set of reproducible analyses that demonstrate business reasoning, aggregation, joins, CTEs, window functions, conditional logic, and time-series analysis.
-
-### Portfolio rule
-
-A query is retained when it:
-1. answers a meaningful business question;
-2. demonstrates an analytical technique at an appropriate level;
-3. produces an interpretable result;
-4. is materially different from another retained query.
-
-Basic syntax demonstrations and repetitive exercises are deliberately excluded.
+COUNT(*)                  -- order lines records
+COUNT(DISTINCT Order_ID)  -- distinct orders records
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## 3. ORIGINAL WORK 
+#### Business questions
 
-| Original file | Decision | Portfolio treatment |
-|---|---|---|
-| `Superstore.sql` | KEPT | Setup/schema/import validation only |
-| `People.sql` | KEPT | Supporting region-manager lookup |
-| `Returns.sql` | KEPT | Supporting return-status lookup |
-| `Exercise 1-8.sql` | REMOVED | Basic SQL practice; no portfolio value |
-| `Exercise 2-8.sql` | REMOVED | Basic aggregation practice superseded by stronger analysis |
-| `INTERMEDIATE.sql` | REMOVED | String-function practice |
-| `Time_functions.sql` | REMOVED | Date-function drills superseded by analytical time-series queries |
-| `Case Conditional Case.sql` | REMOVED | CASE/function practice superseded by business classifications |
-| `Join table.sql` | KEPT | Manager/return analysis |
-| `SUBQUERY.sql` | REMOVED | Technique practice rather than business story |
-| `CORRELATED_SUBQUERY.sql` | REMOVED | Technique practice; retain only in personal learning archive |
-| `CTE Functions.sql` | KEPT | Substantive category, region and customer analyses |
-| `Windows function.sql` | KEPT | Ranking, contribution and time-series analyses |
-| `Assessment.sql` | KEPT | Customer profitability and concentration |
-| `Final check.sql` | KEPT | Core sales, profitability, discount and time analyses |
+### 2. Sales & Profitability Performance
 
-**Important:** Not all original files were placed in the final GitHub `sql/` folder. The consolidated files below are cleaner portfolio Findings.
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-### 4. Portfolio SQL architecture
-
-Current GitHub structure:
-
-sql/
-├── 01_data_setup.sql
-├── 02_sales_profitability.sql
-├── 03_customer_profitability.sql
-├── 04_product_category_analysis.sql
-├── 05_discount_profitability.sql
-├── 06_geographic_analysis.sql
-├── 07_operational_returns_analysis.sql
-└── 08_time_trend_analysis.sql
-```
-
-The eight files are intentionally business-analysis oriented rather than technique-syntax oriented.
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-#### 5. Analysis inventory
-
-## Sales & Profitability Performance
-
-### Business objective
-Establish the overall commercial performance of the business and identify major sales/profit contributors and loss areas.
-
-### Retained analyses
+###  Analysis
 
 | Analysis | Business question | Technique | Decision |
 |----------|-------------------|-----------|----------|
@@ -107,17 +36,11 @@ Establish the overall commercial performance of the business and identify major 
 | Loss-making sub-categories | Which sub-categories create the largest cumulative losses? | Conditional aggregation | 
 | State profitability | Which states are most/least profitable? | GROUP BY | MERGE with geography |
 
-### Portfolio conclusion
-This story should establish that sales volume alone is insufficient: category/sub-category performance must be evaluated alongside profit.
-
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### 6. Customer Profitability & Concentration
+### 3. Customer Profitability & Concentration
 
-## Business objective
-Identify the customers that create economic value and determine how concentrated profitability is across the customer base.
-
-### Retained analyses
+### Analyses
 
 | Analysis | Business question | Technique | Decision |
 |----------|-------------------|-----------|----------|
@@ -133,14 +56,9 @@ Identify the customers that create economic value and determine how concentrated
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### 7. Product & Category Analysis
+### 3. Product & Category Analysis
 
-## Business objective
-Identified products/categories driving commercial performance and isolate products that create persistent losses.
-
-
-
-### Retained analyses
+### Analyses
 
 | Analysis | Business question | Technique | Decision |
 |---|---|---|---|
@@ -159,13 +77,9 @@ A product appearing in multiple distinct orders is **not automatically evidence 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### 8. Discount & Profitability
+### 4. Discount & Profitability
 
-## Business objective
-Assessed whether higher discount levels are associated with weaker profitability.
-
-
-### Retained analysis
+### Analysis
 
 Orders are classified using the overall average discount:
 
@@ -177,21 +91,17 @@ The analysis aggregates at the distinct-order level for order counts and loss ra
 
 ### Interpretation rule
 This supports a **strong association** between higher discounting and weaker profitability in this dataset.
-It does **not** establish causation.
+It does **not** establish causation/correlation.
 
-### Important grain note
+### Important note
 `Orders` is line-level. Therefore, order-level profitability must be calculated after aggregating each `Order_ID`; otherwise multi-line orders can distort order-level metrics.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### 9. Geographic Performance
-
-## Business objective
-Identified geographic markets with strong sales/profit performance and locations requiring investigation.
+### 5. Geographic Performance
 
 
-
-### Retained analyses
+### Analysis
 
 | Analysis | Business question | Technique | Decision |
 |----------|-------------------|-----------|----------|
@@ -207,18 +117,14 @@ Identified geographic markets with strong sales/profit performance and locations
 | Sub-category in lowest-order city | What sells most in the weakest city? | Nested aggregation + ranking | 
 | Geographic MoM deterioration | Which regions experienced their sharpest monthly sales decline? | CTE + LAG + ROW_NUMBER | 
 
-### Grain rule
+### About grain 
 Order-based geographic analysis must use `COUNT(DISTINCT Order_ID)`, not `COUNT(*)`.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-#  10. Operational & Returns Analysis
+### 6. Operational & Returns Analysis
 
-## Business objective
-Evaluate shipping behavior and return patterns to identify operational areas requiring investigation.
-
-
-### Retained analyses
+### Analysis
 
 | Analysis | Business question | Technique | Decision |
 |----------|-------------------|-----------|----------|
@@ -230,21 +136,16 @@ Evaluate shipping behavior and return patterns to identify operational areas req
 | Manager regional KPI | How do regional managers compare on operational KPIs? | JOIN + aggregation | 
 
 
-The exact labels for these two percentages should be taken from the final SQL output before publishing.
-
 ### Important Note
 Returns` is at order level while `Orders` is at order-line level. Joining them directly and summing sales can duplicate returned-order sales across multiple lines.
-For return-rate analysis, use distinct order counts.
+For return-rate analysis, used distinct order counts.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# 11. Time & Trend Analysis
-
-## Business objective
-Identified growth patterns, deteriorations, seasonality and regional volatility.
+### 7. Time & Trend Analysis
 
 
-### Retained analyses
+### Analysis
 
 | Analysis | Business question | Technique | Decision |
 |---|---|---|---|
@@ -262,31 +163,7 @@ Identified growth patterns, deteriorations, seasonality and regional volatility.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-# 12. Queries deliberately excluded
-
-The following exercises are **not** be representing as customer-level portfolio analyses, hence they are not included here:
-
-### Syntax-only exercises
-- SELECT/DISTINCT drills
-- WHERE drills
-- ORDER BY/LIMIT drills
-- basic GROUP BY drills
-- string functions
-- date-function demonstrations
-- simple CASE examples
-
-### Technique demonstrations without business value
-- scalar subquery against overall average
-- IN/NOT IN syntax demonstrations
-- correlated-subquery demonstrations
-- EXISTS/NOT EXISTS demonstrations
-- RANK vs DENSE_RANK comparison
-- simple CTE syntax examples
-
-
-
-
-# 13. SQL techniques demonstrated by the Superstore dataset Project.
+### 8. SQL techniques demonstrated by the Superstore dataset Project.
 
 The consolidated project still demonstrates the important analytical SQL techniques:
 
@@ -308,11 +185,9 @@ The consolidated project still demonstrates the important analytical SQL techniq
 - Regional analysis
 - Operational KPI analysis
 - Return-rate analysis
-- Basic query-logic awareness and grain control
+- Basic query-logic awareness and row level grain
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
 
 
 
