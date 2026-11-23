@@ -32,13 +32,11 @@ This project is about exploration  the Sample Superstore dataset to uncover patt
 
 \** Quick Links to Key Outputs
 
+## Quick Links to Key Outputs
 
-
-\* \[Monthly Sales Trend](Python/results/figures/notebook\_04/monthly\_sales\_trend.png)
-
-\* \[Monthly Profit Chart](Python/results/figures/notebook\_04/monthly\_profit.png)
-
-\* \[Monthly Performance Summary (CSV)](Python/results/tables/notebook\_04/monthly\_performance.csv)
+- [Monthly Sales Trend](Python/results/figures/notebook_04/monthly_sales_trend.png)
+- [Monthly Profit Chart](Python/results/figures/notebook_04/monthly_profit.png)
+- [Monthly Performance Summary (CSV)](Python/results/tables/notebook_04/monthly_performance.csv)
 
 
 
