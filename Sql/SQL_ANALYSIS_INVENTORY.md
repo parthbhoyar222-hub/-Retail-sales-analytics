@@ -42,8 +42,8 @@ COUNT(DISTINCT Order_ID)  -- distinct orders records
 
 ### Analyses
 
-| Analysis | Business question | Technique | Decision |
-|----------|-------------------|-----------|----------|
+| Analysis | Business question | Technique | 
+|----------|-------------------|-----------|
 | Customer sales/profit summary | How much sales and profit does each customer generate? | GROUP BY | 
 | Profit-making vs loss-making customers | How many customers create vs destroy profit? | CASE + aggregation | 
 | Customer profitability ranking | Which customers contribute the most profit? | RANK / ROW_NUMBER | 
@@ -60,8 +60,8 @@ COUNT(DISTINCT Order_ID)  -- distinct orders records
 
 ### Analyses
 
-| Analysis | Business question | Technique | Decision |
-|---|---|---|---|
+| Analysis | Business question | Technique |
+|---|---|---|
 | Top products by sales | Which products contribute most to sales? | Aggregation + ranking | 
 | Products by yearly sales contribution | Which products lead each year? | CTE + window ranking | 
 | Category ranking by region | Which category leads each region? | RANK | 
@@ -103,8 +103,8 @@ It does **not** establish causation/correlation.
 
 ### Analysis
 
-| Analysis | Business question | Technique | Decision |
-|----------|-------------------|-----------|----------|
+| Analysis | Business question | Technique |
+|----------|-------------------|-----------|
 | Country sales/orders/quantity | Which countries generate the most business? | Aggregation | 
 | State profitability | Which states generate highest profit? | GROUP BY | 
 | State losses | Which states generate the largest losses? | Conditional aggregation | 
@@ -126,8 +126,8 @@ Order-based geographic analysis must use `COUNT(DISTINCT Order_ID)`, not `COUNT(
 
 ### Analysis
 
-| Analysis | Business question | Technique | Decision |
-|----------|-------------------|-----------|----------|
+| Analysis | Business question | Technique |
+|----------|-------------------|-----------|
 | Shipping mode frequency | Which shipping modes are most used? | Aggregation | 
 | Shipping mode by city | How does shipping preference vary geographically? | GROUP BY | 
 | Shipping delay by segment | Which segment has the longest average shipping delay? | DATEDIFF + aggregation | 
@@ -147,8 +147,8 @@ For return-rate analysis, used distinct order counts.
 
 ### Analysis
 
-| Analysis | Business question | Technique | Decision |
-|---|---|---|---|
+| Analysis | Business question | Technique |
+|---|---|---|
 | Monthly sales/profit | How does business performance change month to month? | Date aggregation | 
 | MoM sales/profit | Which months improved or deteriorated? | LAG | 
 | Monthly performance classification | Did sales and profit move in the same direction? | LAG + CASE | 
