@@ -27,8 +27,8 @@ COUNT(DISTINCT Order_ID)  -- distinct orders records
 
 ###  Analysis
 
-| Analysis | Business question | Technique | Decision |
-|----------|-------------------|-----------|----------|
+| Analysis | Business question | Technique | 
+|----------|-------------------|-----------|
 | Overall sales/profit by category | Which categories contribute most to sales and profit? | GROUP BY | 
 | Category ranking within region | Which categories lead within each region? | CTE + window ranking | 
 | Category sales contribution | What percentage of regional/category sales comes from each category? | Window SUM | 
