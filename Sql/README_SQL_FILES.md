@@ -30,4 +30,4 @@ Used:
 | 05 — Discount and profitability | [View CSV results](Results/05_Discount_profitability/) |
 | 06 — Geographic analysis | [View CSV results](Results/06_Geographic_analysis/) |
 | 07 — Operations and returns | [View CSV results](Results/07_Operational_return_analysis/) |
-| 08 — Time trends | [View CSV results](Results/08_TIme_trend_analysis/) |
+| 08 — Time trends | [View CSV results](Results/08_Time_trend_analysis/) |
