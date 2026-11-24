@@ -14,11 +14,11 @@ The three raw files used by Notebook 01 are included in this repository. No sepa
 Use Python 3.14. From the repository root, run these commands in Windows Command Prompt:
 
 In cmd, type the following commands one by one.  
-python -m venv .venv
-.venv\Scripts\activate.bat
-python -m pip install -r requirements.txt
-cd Python
-python -m notebook
+python -m venv .venv \
+.venv\Scripts\activate.bat \
+python -m pip install -r requirements.txt \
+cd Python \
+python -m notebook \
 Run [Notebook 01: Data Preparation](Python/01_data_preparation.ipynb) first. It reads the included files in `Python/data/raw/` and creates `Python/data/processed/orders_enriched.csv`, which Notebooks 02–04 use for further use.  
 
 ## Analysis
