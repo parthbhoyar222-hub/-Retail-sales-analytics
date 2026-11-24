@@ -2,6 +2,13 @@
 
 This project analyzes 10,194 Superstore order lines across 5,111 orders to answer three questions: Which categories generate profit? How often are orders returned? When does sales growth fail to translate into higher profit?
 
+## Dataset & How to Run
+The three raw files used by Notebook 01 are included in this repository. No separate download or renaming is required to run the notebook.
+
+- [Original dataset source](https://public.tableau.com/app/sample-data/sample_-_superstore.xls)
+- [Excel workbook used in this analysis](Python/data/raw/sample_superstore.xlsx) 
+- [All three notebook inputs include: workbook, people.csv, and returns.csv](Python/data/raw/)
+
 ## Analysis
 
 - [SQL analysis and saved results](Sql/README_SQL_FILES.md): Eight MySQL scripts cover data setup, category and customer profitability, discounts, regional performance, returns, and sales trends.
