@@ -1,67 +1,21 @@
-\# Retail Sales Analytics | SQL \& Python
+# Retail Sales Analytics | SQL & Python
 
+This project analyzes 10,194 Superstore order lines across 5,111 orders to answer three questions: Which categories generate profit? How often are orders returned? When does sales growth fail to translate into higher profit?
 
+## Analysis
 
-This project is about exploration  the Sample Superstore dataset to uncover patterns in sales performance, profitability, customer behavior, and order returns across 10,194 product line items and 5,111 unique orders.
+- [SQL analysis and saved results](Sql/README_SQL_FILES.md): Eight MySQL scripts cover data setup, category and customer profitability, discounts, regional performance, returns, and sales trends.
+- [Python notebooks](Python/): Four notebooks prepare the data, analyze profitability and returns, and track monthly sales and profit.
 
+## Key Findings
 
+1. **Technology led profitability.** Technology generated approximately 146.5k in profit, compared with 126.0k for Office Supplies and 19.7k for Furniture. Furniture generated more sales than Office Supplies (754.7k versus 731.9k), but its profit margin was only 2.61%, compared with 17.22% for Office Supplies. [Category results](Sql/Results/02_Sales_Profitability/Results_02_01_Overall_Performance.csv)
+2. **Returns affected 5.79% of orders.** Of 5,111 distinct orders, 296 were returned. This measures how frequently orders were returned, not the value refunded. [Customer and returns analysis](Python/03_customer_and_returns_analysis.ipynb)
+3. **Sales growth did not always translate into profit growth.** In 7 of 36 months with a prior-year comparison, sales rose while profit fell. In November 2025, sales rose 4.53% year over year while profit fell by 8,463.38. The month still earned 4,011.41 in profit. [Monthly results](Python/results/tables/notebook_04/monthly_performance.csv)
+4. **Tables were a loss-making part of Furniture.** Tables recorded approximately 208.0k in sales but a net loss of 17.8k. The category-wide Furniture total therefore masks an important difference between its products. [Sales and profitability analysis](Python/02_sales_profitability_analysis.ipynb)
 
-\** What I Built
+## Recommendations
 
-
-
-1.\[SQL Analysis](Sql/README\_SQL\_FILES.md): MySQL scripts covering database setup and queries into sales, profit margins, customer segments, discounting, regional performance, returns, and time trends.
-
-
-
-2.\[Python Analysis](Python/): Four end-to-end Jupyter notebooks walking through data preparation, sales and profitability, customer behavior and returns, and monthly performance tracking.
-
-
-
-\** Key Findings
-
-
-
-1.Top-Performing Category: Technology generated the highest total profit among all three product categories.
-
-2.Return Rate: Out of 5,111 unique orders, 296 were returned—an order-level return rate of 5.79% (It should be noted that this reflects order frequency rather than total refunded value).
-
-3\.Sales vs. Profit Disconnect:\*\* In 7 out of 36 comparable months, year-over-year sales grew while profit declined. For example, in November 2025, sales rose by 4.53%, yet profit dropped by 8,463.38.
-
-
-
-\** Quick Links to Key Outputs
-
-## Quick Links to Key Outputs
-
-- [Monthly Sales Trend](Python/results/figures/notebook_04/monthly_sales_trend.png)
-- [Monthly Profit Chart](Python/results/figures/notebook_04/monthly_profit.png)
-- [Monthly Performance Summary (CSV)](Python/results/tables/notebook_04/monthly_performance.csv)
-
-
-
-\** Dataset \& How to Run
-
-### SQL (MySQL)
-
-The [SQL input CSVs](Sql/inputs/) are included in this repository.
-Create and select an empty MySQL schema, then open [`01_data_setup.sql`](Sql/01_data_setup.sql). In your local copy of the script, replace the three `LOAD DATA LOCAL INFILE` path placeholders with the paths to `orders.csv`, `people.csv`, and `returns_clean.csv`.
-
-Run the setup once, then compare the counts with the
-[verified import results](Sql/Results/01_data_setup/01_import_row_counts.csv).
-See the [SQL exercise index](Sql/README_SQL_FILES.md) for the analysis
-scripts and their saved results.
-
-### Python (Jupyter)
-
-The original Superstore workbook is not included. Use the same workbook version used for this analysis and save it as
-`Python/data/raw/sample_superstore.xlsx`.
-
-Copy `Sql/inputs/people.csv` to `Python/data/raw/people.csv`.
-Copy `Sql/inputs/returns_clean.csv` to `Python/data/raw/returns.csv`.
-The cleaned Returns CSV contains the two columns used in the analysis, so the raw-column preview will differ from the one saved in Notebook 01.
-
-Start Jupyter from the `Python/` folder and run
-[`01_data_preparation.ipynb`](Python/01_data_preparation.ipynb) first.
-It will create `Python/data/processed/orders_enriched.csv`, which will be used in notebooks 02–04 use.
-
+-  Compare profit and discount bands within Tables before changing prices across all Furniture products. Check whether losses are concentrated in particular products or order types.
+-  Flag months where sales rise year over year but profit falls. Start with November 2025 and compare its category mix, discounts, and margins with November 2024 before attributing the    decline to a cause.
+-  Compare returned orders with total distinct orders in each segment. Review segments with both an elevated rate and enough orders to make the comparison meaningful; raw return counts alone favor larger segments.
