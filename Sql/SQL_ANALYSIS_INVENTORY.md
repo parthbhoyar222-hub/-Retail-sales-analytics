@@ -1,4 +1,4 @@
-#SQL Analysis Inventory — Superstore dataset Project
+### SQL Analysis Inventory — Superstore dataset Project
 
 1.Status: Completed
 2.Database: MySQL Workbench  
